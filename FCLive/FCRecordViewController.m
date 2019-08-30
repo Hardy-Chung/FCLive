@@ -25,6 +25,9 @@
 // 视频预览图层
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
+// 视频预览图层
+@property (nonatomic, strong) NSArray *cameraDeviceTypes;
+
 @property (nonatomic, assign) AVCaptureDevicePosition position;
 @property (nonatomic, assign) NSInteger positionIndex;
 
@@ -85,6 +88,29 @@
     return _videoPreviewLayer;
 }
 
+- (NSArray *)cameraDeviceTypes {
+    if (!_cameraDeviceTypes) {
+        if (@available(iOS 10.0, *)) {
+            NSMutableArray *types = [@[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInTelephotoCamera] mutableCopy];
+            
+            if (@available(iOS 10.2, *)) {
+                [types addObject:AVCaptureDeviceTypeBuiltInDualCamera];
+            } else {
+                [types addObject:AVCaptureDeviceTypeBuiltInDuoCamera];
+            }
+            
+            // 深感摄像头，是一个前置摄像头，典型应用有Face ID
+            // 以及iMessage里面的Animoji
+            //if (@available(iOS 11.1, *)) {
+            //    [types addObject:AVCaptureDeviceTypeBuiltInTrueDepthCamera];
+            //}
+            
+            _cameraDeviceTypes = [types copy];
+        }
+    }
+    return _cameraDeviceTypes;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -119,32 +145,34 @@
 
 // 获取指定方向摄像头
 - (AVCaptureDevice *)getVideoDevice:(AVCaptureDevicePosition)position {
-    self.position = position;
-    self.positionIndex += 1;
-    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-//    for (AVCaptureDevice *device in devices) {
-//        if (device.position == position) {
-//            return device;
-//        }
-//    }
-    
-    AVCaptureDeviceDiscoverySession *s = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInTelephotoCamera, AVCaptureDeviceTypeBuiltInDualCamera, AVCaptureDeviceTypeBuiltInTrueDepthCamera, AVCaptureDeviceTypeBuiltInDuoCamera] mediaType:AVMediaTypeVideo position:position];
-    if (self.positionIndex < s.devices.count) {
-        return s.devices[self.positionIndex];
+    if (@available(iOS 10.0, *)) {
+        self.position = position;
+        self.positionIndex += 1;
+        AVCaptureDeviceDiscoverySession *s = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:self.cameraDeviceTypes mediaType:AVMediaTypeVideo position:position];
+        if (self.positionIndex < s.devices.count) {
+            return s.devices[self.positionIndex];
+        } else {
+            AVCaptureDevicePosition position = 3 - self.position;
+            self.positionIndex = -1;
+            return [self getVideoDevice:position];
+        }
     } else {
-        AVCaptureDevicePosition position = 3 - self.position;
-        self.positionIndex = -1;
-        return [self getVideoDevice:position];
-        
+        NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+        for (AVCaptureDevice *device in devices) {
+            if (device.position == position) {
+                return device;
+            }
+        }
+        return nil;
     }
-
-    return nil;
 }
 
 - (IBAction)didClickTrunButton:(UIButton *)sender {
     [self.captureSession stopRunning];
     [self.captureSession removeInput:self.videoDeviceInput];
-    self.videoDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self getVideoDevice:self.position] error:nil];
+    AVCaptureDevice *device = [self getVideoDevice:self.position];
+    NSLog(@"-------- %@", device);
+    self.videoDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:device error:nil];
     if ([self.captureSession canAddInput:self.videoDeviceInput]) {
         [self.captureSession addInput:self.videoDeviceInput];
         [self.captureSession startRunning];
@@ -153,9 +181,9 @@
 
 - (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
     if ([output isMemberOfClass:[AVCaptureVideoDataOutput class]]) {
-        NSLog(@"采集到视频数据");
+//        NSLog(@"采集到视频数据");
     } else if ([output isMemberOfClass:[AVCaptureAudioDataOutput class]]) {
-        NSLog(@"采集到音频数据");
+//        NSLog(@"采集到音频数据");
     }
 }
 @end
