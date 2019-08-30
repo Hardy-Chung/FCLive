@@ -25,6 +25,9 @@
 // 视频预览图层
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
+@property (nonatomic, assign) AVCaptureDevicePosition position;
+@property (nonatomic, assign) NSInteger positionIndex;
+
 @end
 
 @implementation FCRecordViewController
@@ -85,6 +88,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.positionIndex = -1;
+    
     // 绑定视频输入设备
     if ([self.captureSession canAddInput:self.videoDeviceInput]) {
         [self.captureSession addInput:self.videoDeviceInput];
@@ -114,13 +119,43 @@
 
 // 获取指定方向摄像头
 - (AVCaptureDevice *)getVideoDevice:(AVCaptureDevicePosition)position {
+    self.position = position;
+    self.positionIndex += 1;
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-    for (AVCaptureDevice *device in devices) {
-        if (device.position == position) {
-            return device;
-        }
+//    for (AVCaptureDevice *device in devices) {
+//        if (device.position == position) {
+//            return device;
+//        }
+//    }
+    
+    AVCaptureDeviceDiscoverySession *s = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInTelephotoCamera, AVCaptureDeviceTypeBuiltInDualCamera, AVCaptureDeviceTypeBuiltInTrueDepthCamera, AVCaptureDeviceTypeBuiltInDuoCamera] mediaType:AVMediaTypeVideo position:position];
+    if (self.positionIndex < s.devices.count) {
+        return s.devices[self.positionIndex];
+    } else {
+        AVCaptureDevicePosition position = 3 - self.position;
+        self.positionIndex = -1;
+        return [self getVideoDevice:position];
+        
     }
+
     return nil;
 }
 
+- (IBAction)didClickTrunButton:(UIButton *)sender {
+    [self.captureSession stopRunning];
+    [self.captureSession removeInput:self.videoDeviceInput];
+    self.videoDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self getVideoDevice:self.position] error:nil];
+    if ([self.captureSession canAddInput:self.videoDeviceInput]) {
+        [self.captureSession addInput:self.videoDeviceInput];
+        [self.captureSession startRunning];
+    }
+}
+
+- (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+    if ([output isMemberOfClass:[AVCaptureVideoDataOutput class]]) {
+        NSLog(@"采集到视频数据");
+    } else if ([output isMemberOfClass:[AVCaptureAudioDataOutput class]]) {
+        NSLog(@"采集到音频数据");
+    }
+}
 @end
