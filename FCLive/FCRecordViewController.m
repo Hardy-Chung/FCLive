@@ -8,6 +8,7 @@
 
 #import "FCRecordViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "UIColor+Category.h"
 
 @interface FCRecordViewController () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate>
 
@@ -27,6 +28,9 @@
 
 // 摄像头类型
 @property (nonatomic, strong) NSArray *cameraDeviceTypes;
+
+// 聚焦框视图
+@property (nonatomic, strong) UIView *focusView;
 
 @property (nonatomic, assign) AVCaptureDevicePosition position;
 @property (nonatomic, assign) NSInteger positionIndex;
@@ -111,6 +115,16 @@
     return _cameraDeviceTypes;
 }
 
+- (UIView *)focusView {
+    if (!_focusView) {
+        _focusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+        _focusView.layer.borderWidth = 0.5;
+        _focusView.layer.borderColor = [UIColor colorWithRGB:0x77ebe2].CGColor;
+        _focusView.alpha = 0;
+    }
+    return _focusView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -171,7 +185,6 @@
     [self.captureSession stopRunning];
     [self.captureSession removeInput:self.videoDeviceInput];
     AVCaptureDevice *device = [self getVideoDevice:self.position];
-    NSLog(@"-------- %@", device);
     self.videoDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:device error:nil];
     if ([self.captureSession canAddInput:self.videoDeviceInput]) {
         [self.captureSession addInput:self.videoDeviceInput];
@@ -196,8 +209,12 @@
     
     // 聚焦
     [self focusWithMode:AVCaptureFocusModeAutoFocus exposureMode:AVCaptureExposureModeAutoExpose atPoint:cameraPoint];
+    
+    // 显示焦点框
+    [self updateFocusViewWithPoint:location];
 }
 
+// 更新焦点
 - (void)focusWithMode:(AVCaptureFocusMode)focusMode exposureMode:(AVCaptureExposureMode)exposureMode atPoint:(CGPoint)point {
     AVCaptureDevice *device = self.videoDeviceInput.device;
     
@@ -222,6 +239,22 @@
     
     // 修改完记得解锁
     [device unlockForConfiguration];
+}
+
+// 显示焦点框
+- (void)updateFocusViewWithPoint:(CGPoint)point {
+    if (!_focusView.superview) {
+        [self.view addSubview:self.focusView];
+    }
+    
+    self.focusView.center = point;
+    self.focusView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+    self.focusView.alpha = 1.0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.focusView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        self.focusView.alpha = 0;
+    }];
 }
 
 @end

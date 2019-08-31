@@ -15,6 +15,7 @@
 		1447F02B23190B8F001786F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447F02A23190B8F001786F4 /* main.m */; };
 		1447F03423191044001786F4 /* FCRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447F03223191044001786F4 /* FCRecordViewController.m */; };
 		1447F037231939C3001786F4 /* FCRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1447F036231939C3001786F4 /* FCRecordViewController.xib */; };
+		4EEA4AEB231A0AD700090EC7 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		1447F03123191044001786F4 /* FCRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCRecordViewController.h; sourceTree = "<group>"; };
 		1447F03223191044001786F4 /* FCRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCRecordViewController.m; sourceTree = "<group>"; };
 		1447F036231939C3001786F4 /* FCRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCRecordViewController.xib; sourceTree = "<group>"; };
+		4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
+		4EEA4AEA231A0AD600090EC7 /* UIColor+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 				1447F03123191044001786F4 /* FCRecordViewController.h */,
 				1447F03223191044001786F4 /* FCRecordViewController.m */,
 				1447F036231939C3001786F4 /* FCRecordViewController.xib */,
+				4EEA4AEA231A0AD600090EC7 /* UIColor+Category.h */,
+				4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */,
 				1447F02423190B8F001786F4 /* Assets.xcassets */,
 				1447F02623190B8F001786F4 /* LaunchScreen.storyboard */,
 				1447F02923190B8F001786F4 /* Info.plist */,
@@ -154,6 +159,7 @@
 				1447F02B23190B8F001786F4 /* main.m in Sources */,
 				1447F03423191044001786F4 /* FCRecordViewController.m in Sources */,
 				1447F01D23190B8A001786F4 /* AppDelegate.m in Sources */,
+				4EEA4AEB231A0AD700090EC7 /* UIColor+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
