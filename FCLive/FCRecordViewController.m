@@ -25,7 +25,7 @@
 // 视频预览图层
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
-// 视频预览图层
+// 摄像头类型
 @property (nonatomic, strong) NSArray *cameraDeviceTypes;
 
 @property (nonatomic, assign) AVCaptureDevicePosition position;
@@ -186,4 +186,42 @@
 //        NSLog(@"采集到音频数据");
     }
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    // 获取点击位置
+    CGPoint location = [touches.anyObject locationInView:self.view];
+    
+    // 转换为摄像头聚焦位置
+    CGPoint cameraPoint = [self.videoPreviewLayer captureDevicePointOfInterestForPoint:location];
+    
+    // 聚焦
+    [self focusWithMode:AVCaptureFocusModeAutoFocus exposureMode:AVCaptureExposureModeAutoExpose atPoint:cameraPoint];
+}
+
+- (void)focusWithMode:(AVCaptureFocusMode)focusMode exposureMode:(AVCaptureExposureMode)exposureMode atPoint:(CGPoint)point {
+    AVCaptureDevice *device = self.videoDeviceInput.device;
+    
+    // 修改配置前需要锁定设备
+    [device lockForConfiguration:nil];
+    
+    // 修改聚聚
+    if (device.focusMode != focusMode && [device isFocusModeSupported:focusMode]) {
+        [device setFocusMode:focusMode];
+    }
+    if (device.isFocusPointOfInterestSupported) {
+        [device setFocusPointOfInterest:point];
+    }
+    
+    // 修改曝光
+    if (device.exposureMode != exposureMode && [device isExposureModeSupported:exposureMode]) {
+        [device setExposureMode:exposureMode];
+    }
+    if (device.isExposurePointOfInterestSupported) {
+        [device setExposurePointOfInterest:point];
+    }
+    
+    // 修改完记得解锁
+    [device unlockForConfiguration];
+}
+
 @end
