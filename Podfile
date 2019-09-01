@@ -6,5 +6,6 @@ target 'FCLive' do
   use_frameworks!
 
   # Pods for FCLive
-pod 'GPUImage',
+  pod 'GPUImage'
+
 end
