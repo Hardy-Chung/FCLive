@@ -1,16 +1,21 @@
 PODS:
   - GPUImage (0.1.7)
+  - GPUImageBeautifyFilter (1.0.0):
+    - GPUImage
 
 DEPENDENCIES:
   - GPUImage
+  - GPUImageBeautifyFilter
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - GPUImage
+    - GPUImageBeautifyFilter
 
 SPEC CHECKSUMS:
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  GPUImageBeautifyFilter: 6eb451b50c395109172ae1f9e69c4241d0126c09
 
-PODFILE CHECKSUM: 4e7fa7f5017bab9775372f0f396f862a20124b79
+PODFILE CHECKSUM: b887246decff300edfee458e77a06cebf86c876b
 
 COCOAPODS: 1.7.5

@@ -7,5 +7,6 @@ target 'FCLive' do
 
   # Pods for FCLive
   pod 'GPUImage'
+  pod 'GPUImageBeautifyFilter'
 
 end
