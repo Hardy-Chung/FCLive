@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		1447F03423191044001786F4 /* FCRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447F03223191044001786F4 /* FCRecordViewController.m */; };
 		1447F037231939C3001786F4 /* FCRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1447F036231939C3001786F4 /* FCRecordViewController.xib */; };
 		4EEA4AEB231A0AD700090EC7 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */; };
+		4EEA4AEF231BC35C00090EC7 /* FCGPURecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA4AED231BC35C00090EC7 /* FCGPURecordViewController.m */; };
+		4EEA4AF0231BC35C00090EC7 /* FCGPURecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EEA4AEE231BC35C00090EC7 /* FCGPURecordViewController.xib */; };
 		73190F619DED51EBA1C89658 /* Pods_FCLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D82C122A2EB76A0AE1C898F /* Pods_FCLive.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,9 @@
 		4D82C122A2EB76A0AE1C898F /* Pods_FCLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		4EEA4AEA231A0AD600090EC7 /* UIColor+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
+		4EEA4AEC231BC35C00090EC7 /* FCGPURecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCGPURecordViewController.h; sourceTree = "<group>"; };
+		4EEA4AED231BC35C00090EC7 /* FCGPURecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCGPURecordViewController.m; sourceTree = "<group>"; };
+		4EEA4AEE231BC35C00090EC7 /* FCGPURecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCGPURecordViewController.xib; sourceTree = "<group>"; };
 		86A4FE3BE3AEBE5C29D91A04 /* Pods-FCLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCLive.debug.xcconfig"; path = "Target Support Files/Pods-FCLive/Pods-FCLive.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +86,9 @@
 				1447F03123191044001786F4 /* FCRecordViewController.h */,
 				1447F03223191044001786F4 /* FCRecordViewController.m */,
 				1447F036231939C3001786F4 /* FCRecordViewController.xib */,
+				4EEA4AEC231BC35C00090EC7 /* FCGPURecordViewController.h */,
+				4EEA4AED231BC35C00090EC7 /* FCGPURecordViewController.m */,
+				4EEA4AEE231BC35C00090EC7 /* FCGPURecordViewController.xib */,
 				4EEA4AEA231A0AD600090EC7 /* UIColor+Category.h */,
 				4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */,
 				1447F02423190B8F001786F4 /* Assets.xcassets */,
@@ -97,7 +105,6 @@
 				86A4FE3BE3AEBE5C29D91A04 /* Pods-FCLive.debug.xcconfig */,
 				05E79ABDF16E235A2FA103FC /* Pods-FCLive.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -170,6 +177,7 @@
 			files = (
 				1447F02823190B8F001786F4 /* LaunchScreen.storyboard in Resources */,
 				1447F02523190B8F001786F4 /* Assets.xcassets in Resources */,
+				4EEA4AF0231BC35C00090EC7 /* FCGPURecordViewController.xib in Resources */,
 				1447F037231939C3001786F4 /* FCRecordViewController.xib in Resources */,
 				1447F02323190B8A001786F4 /* Main.storyboard in Resources */,
 			);
@@ -227,6 +235,7 @@
 				1447F02023190B8A001786F4 /* ViewController.m in Sources */,
 				1447F02B23190B8F001786F4 /* main.m in Sources */,
 				1447F03423191044001786F4 /* FCRecordViewController.m in Sources */,
+				4EEA4AEF231BC35C00090EC7 /* FCGPURecordViewController.m in Sources */,
 				1447F01D23190B8A001786F4 /* AppDelegate.m in Sources */,
 				4EEA4AEB231A0AD700090EC7 /* UIColor+Category.m in Sources */,
 			);

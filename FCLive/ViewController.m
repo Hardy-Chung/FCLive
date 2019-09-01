@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "FCRecordViewController.h"
+#import "FCGPURecordViewController.h"
 
 @interface ViewController ()
 
@@ -21,8 +22,13 @@
 }
 
 - (IBAction)didClickRecordButton:(UIButton *)sender {
-    FCRecordViewController *vc = [[FCRecordViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (sender.tag == 0) {
+        FCRecordViewController *vc = [[FCRecordViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (sender.tag == 1) {
+        FCGPURecordViewController *vc = [[FCGPURecordViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 
