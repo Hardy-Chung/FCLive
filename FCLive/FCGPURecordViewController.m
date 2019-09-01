@@ -55,6 +55,7 @@
 - (GPUImageBilateralFilter *)bilateralFilter {
     if (!_bilateralFilter) {
         _bilateralFilter = [[GPUImageBilateralFilter alloc] init];
+        _bilateralFilter.distanceNormalizationFactor = 5;
     }
     return _bilateralFilter;
 }
@@ -62,6 +63,7 @@
 - (GPUImageBrightnessFilter *)brightnessFilter {
     if (!_brightnessFilter) {
         _brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
+        _brightnessFilter.brightness = 0;
     }
     return _brightnessFilter;
 }
@@ -71,12 +73,12 @@
     
     [self.view insertSubview:self.videoPreview atIndex:0];
     
-//    [self.filterGroup addTarget:self.bilateralFilter];
-//    [self.filterGroup addTarget:self.brightnessFilter];
+    // 设置滤镜组链
     [self.bilateralFilter addTarget:self.brightnessFilter];
     [self.filterGroup setInitialFilters:@[self.bilateralFilter]];
     self.filterGroup.terminalFilter = self.brightnessFilter;
     
+    // 设置GPUImage响应链，从数据源 => 滤镜 => 最终界面效果
     [self.videoCamera addTarget:self.filterGroup];
     [self.filterGroup addTarget:self.videoPreview];
     
@@ -87,6 +89,15 @@
     [super viewDidLayoutSubviews];
     
     self.videoPreview.frame = self.view.bounds;
+}
+
+- (IBAction)bilateralSlider:(UISlider *)sender {
+    CGFloat maxValue = 10;
+    self.bilateralFilter.distanceNormalizationFactor = maxValue - sender.value;
+}
+
+- (IBAction)brightness:(UISlider *)sender {
+    self.brightnessFilter.brightness = sender.value;
 }
 
 @end
