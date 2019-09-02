@@ -8,6 +8,7 @@
 
 #import "FCGPURecordViewController.h"
 #import <GPUImage/GPUImage.h>
+#import <GPUImageBeautifyFilter/GPUImageBeautifyFilter.h>
 
 @interface FCGPURecordViewController ()
 
@@ -21,6 +22,8 @@
 @property (nonatomic, strong) GPUImageBilateralFilter *bilateralFilter;
 // 美白滤镜
 @property (nonatomic, strong) GPUImageBrightnessFilter *brightnessFilter;
+// 美颜滤镜
+@property (nonatomic, strong) GPUImageBeautifyFilter *beautifyFilter;
 
 @end
 
@@ -68,19 +71,20 @@
     return _brightnessFilter;
 }
 
+- (GPUImageBeautifyFilter *)beautifyFilter {
+    if (!_beautifyFilter) {
+        _beautifyFilter = [[GPUImageBeautifyFilter alloc] init];
+    }
+    return _beautifyFilter;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.view insertSubview:self.videoPreview atIndex:0];
     
-    // 设置滤镜组链
-    [self.bilateralFilter addTarget:self.brightnessFilter];
-    [self.filterGroup setInitialFilters:@[self.bilateralFilter]];
-    self.filterGroup.terminalFilter = self.brightnessFilter;
-    
-    // 设置GPUImage响应链，从数据源 => 滤镜 => 最终界面效果
-    [self.videoCamera addTarget:self.filterGroup];
-    [self.filterGroup addTarget:self.videoPreview];
+//    [self adoptOriginalFilter];
+    [self adoptBeautifyFilter];
     
     [self.videoCamera startCameraCapture];
 }
@@ -89,6 +93,24 @@
     [super viewDidLayoutSubviews];
     
     self.videoPreview.frame = self.view.bounds;
+}
+
+- (void)adoptBeautifyFilter {
+    [self.videoCamera removeAllTargets];
+    
+    [self.videoCamera addTarget:self.beautifyFilter];
+    [self.beautifyFilter addTarget:self.videoPreview];
+}
+
+- (void)adoptOriginalFilter {
+    // 设置滤镜组链
+    [self.bilateralFilter addTarget:self.brightnessFilter];
+    [self.filterGroup setInitialFilters:@[self.bilateralFilter]];
+    self.filterGroup.terminalFilter = self.brightnessFilter;
+    
+    // 设置GPUImage响应链，从数据源 => 滤镜 => 最终界面效果
+    [self.videoCamera addTarget:self.filterGroup];
+    [self.filterGroup addTarget:self.videoPreview];
 }
 
 - (IBAction)bilateralSlider:(UISlider *)sender {
