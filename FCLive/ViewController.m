@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "FCRecordViewController.h"
 #import "FCGPURecordViewController.h"
+#import "FCPlayerViewController.h"
 
 @interface ViewController ()
 
@@ -27,6 +28,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if (sender.tag == 1) {
         FCGPURecordViewController *vc = [[FCGPURecordViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (sender.tag == 2) {
+        FCPlayerViewController *vc = [[FCPlayerViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
