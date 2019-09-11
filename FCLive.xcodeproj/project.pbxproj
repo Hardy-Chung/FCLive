@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14371F872328ECE000FD7F76 /* Shader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14371F832328ECE000FD7F76 /* Shader1.fsh */; };
+		14371F882328ECE000FD7F76 /* Shader2.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14371F862328ECE000FD7F76 /* Shader2.fsh */; };
+		14371F8C232907BC00FD7F76 /* FCPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14371F8A232907BC00FD7F76 /* FCPhotoViewController.m */; };
+		14371F8D232907BC00FD7F76 /* FCPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14371F8B232907BC00FD7F76 /* FCPhotoViewController.xib */; };
 		1437BEEF23277AAA003D1DB3 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1437BEE8232779F7003D1DB3 /* IJKMediaFramework.framework */; };
 		1437BEF323277BC8003D1DB3 /* FCPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1437BEF123277BC8003D1DB3 /* FCPlayerViewController.m */; };
 		1437BEF423277BC8003D1DB3 /* FCPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1437BEF223277BC8003D1DB3 /* FCPlayerViewController.xib */; };
@@ -70,6 +74,11 @@
 
 /* Begin PBXFileReference section */
 		05E79ABDF16E235A2FA103FC /* Pods-FCLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCLive.release.xcconfig"; path = "Target Support Files/Pods-FCLive/Pods-FCLive.release.xcconfig"; sourceTree = "<group>"; };
+		14371F832328ECE000FD7F76 /* Shader1.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader1.fsh; sourceTree = "<group>"; };
+		14371F862328ECE000FD7F76 /* Shader2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader2.fsh; sourceTree = "<group>"; };
+		14371F89232907BC00FD7F76 /* FCPhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCPhotoViewController.h; sourceTree = "<group>"; };
+		14371F8A232907BC00FD7F76 /* FCPhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCPhotoViewController.m; sourceTree = "<group>"; };
+		14371F8B232907BC00FD7F76 /* FCPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCPhotoViewController.xib; sourceTree = "<group>"; };
 		1437BEE1232779F6003D1DB3 /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = ../ijkplayer/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj; sourceTree = "<group>"; };
 		1437BEF023277BC8003D1DB3 /* FCPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCPlayerViewController.h; sourceTree = "<group>"; };
 		1437BEF123277BC8003D1DB3 /* FCPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCPlayerViewController.m; sourceTree = "<group>"; };
@@ -167,6 +176,8 @@
 		1447F01A23190B8A001786F4 /* FCLive */ = {
 			isa = PBXGroup;
 			children = (
+				14371F832328ECE000FD7F76 /* Shader1.fsh */,
+				14371F862328ECE000FD7F76 /* Shader2.fsh */,
 				1447F01B23190B8A001786F4 /* AppDelegate.h */,
 				1447F01C23190B8A001786F4 /* AppDelegate.m */,
 				1447F01E23190B8A001786F4 /* ViewController.h */,
@@ -181,6 +192,9 @@
 				1437BEF023277BC8003D1DB3 /* FCPlayerViewController.h */,
 				1437BEF123277BC8003D1DB3 /* FCPlayerViewController.m */,
 				1437BEF223277BC8003D1DB3 /* FCPlayerViewController.xib */,
+				14371F89232907BC00FD7F76 /* FCPhotoViewController.h */,
+				14371F8A232907BC00FD7F76 /* FCPhotoViewController.m */,
+				14371F8B232907BC00FD7F76 /* FCPhotoViewController.xib */,
 				4EEA4AEA231A0AD600090EC7 /* UIColor+Category.h */,
 				4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */,
 				1447F02423190B8F001786F4 /* Assets.xcassets */,
@@ -314,8 +328,11 @@
 				1437BEF423277BC8003D1DB3 /* FCPlayerViewController.xib in Resources */,
 				1447F02823190B8F001786F4 /* LaunchScreen.storyboard in Resources */,
 				1447F02523190B8F001786F4 /* Assets.xcassets in Resources */,
+				14371F882328ECE000FD7F76 /* Shader2.fsh in Resources */,
 				4EEA4AF0231BC35C00090EC7 /* FCGPURecordViewController.xib in Resources */,
+				14371F8D232907BC00FD7F76 /* FCPhotoViewController.xib in Resources */,
 				1447F037231939C3001786F4 /* FCRecordViewController.xib in Resources */,
+				14371F872328ECE000FD7F76 /* Shader1.fsh in Resources */,
 				1447F02323190B8A001786F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +390,7 @@
 				1447F02023190B8A001786F4 /* ViewController.m in Sources */,
 				1447F02B23190B8F001786F4 /* main.m in Sources */,
 				1447F03423191044001786F4 /* FCRecordViewController.m in Sources */,
+				14371F8C232907BC00FD7F76 /* FCPhotoViewController.m in Sources */,
 				4EEA4AEF231BC35C00090EC7 /* FCGPURecordViewController.m in Sources */,
 				1447F01D23190B8A001786F4 /* AppDelegate.m in Sources */,
 				4EEA4AEB231A0AD700090EC7 /* UIColor+Category.m in Sources */,

@@ -45,10 +45,20 @@
                                     <action selector="didClickRecordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4jX-vK-sZl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jc-h4-ji7">
+                                <rect key="frame" x="60" y="318" width="115" height="30"/>
+                                <state key="normal" title="拍照(GPUImage)">
+                                    <color key="titleColor" red="0.4941176471" green="0.69803921570000005" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickRecordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rRy-ad-Oca"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yEz-yk-hkn" secondAttribute="trailing" symbolic="YES" id="3gl-ld-a6m"/>
+                            <constraint firstItem="4Jc-h4-ji7" firstAttribute="leading" secondItem="yEz-yk-hkn" secondAttribute="leading" id="3kM-6W-zsi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tYQ-fR-59g" secondAttribute="trailing" symbolic="YES" id="CIX-Om-33I"/>
                             <constraint firstItem="tYQ-fR-59g" firstAttribute="leading" secondItem="f9d-NL-AEd" secondAttribute="leading" id="Jbr-Z7-Omk"/>
                             <constraint firstItem="f9d-NL-AEd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="KMM-Bz-o5s"/>
@@ -56,6 +66,7 @@
                             <constraint firstItem="yEz-yk-hkn" firstAttribute="leading" secondItem="tYQ-fR-59g" secondAttribute="leading" id="X7s-zQ-n0y"/>
                             <constraint firstItem="f9d-NL-AEd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="XbV-Vo-dnj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f9d-NL-AEd" secondAttribute="trailing" symbolic="YES" id="jFq-jR-KBu"/>
+                            <constraint firstItem="4Jc-h4-ji7" firstAttribute="top" secondItem="yEz-yk-hkn" secondAttribute="bottom" constant="38" id="nVZ-br-jNI"/>
                             <constraint firstItem="tYQ-fR-59g" firstAttribute="top" secondItem="f9d-NL-AEd" secondAttribute="bottom" constant="42" id="sM2-g3-m7t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

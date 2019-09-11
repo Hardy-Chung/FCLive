@@ -81,12 +81,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view insertSubview:self.videoPreview atIndex:0];
+//    [self.view insertSubview:self.videoPreview atIndex:0];
+//
+////    [self adoptOriginalFilter];
+//    [self adoptBeautifyFilter];
+//
+//    [self.videoCamera startCameraCapture];
     
-//    [self adoptOriginalFilter];
-    [self adoptBeautifyFilter];
+    GPUImageVideoCamera *videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
+    videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     
-    [self.videoCamera startCameraCapture];
+    GPUImageFilter *customFilter1 = [[GPUImageFilter alloc] initWithFragmentShaderFromFile:@"Shader1"];
+    GPUImageGammaFilter *customFilter2 = [[GPUImageGammaFilter alloc] init];
+    customFilter2.gamma = 3;
+    GPUImageView *filterVideoView = [[GPUImageView alloc] initWithFrame:CGRectMake(0, 100, 320, 240)];
+    GPUImageView *filterVideoView2 = [[GPUImageView alloc] initWithFrame:CGRectMake(0, 300, 320, 240)];
+    [self.view insertSubview:filterVideoView atIndex:0];
+    [self.view insertSubview:filterVideoView2 atIndex:0];
+    
+    [videoCamera addTarget:customFilter2];
+    [videoCamera addTarget:filterVideoView];
+//    [customFilter1 addTarget:filterVideoView];
+    
+    [customFilter2 addTarget:filterVideoView2];
+    [videoCamera startCameraCapture];
+    self.videoCamera = videoCamera;
 }
 
 - (void)viewDidLayoutSubviews {

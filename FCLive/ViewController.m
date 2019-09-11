@@ -10,6 +10,7 @@
 #import "FCRecordViewController.h"
 #import "FCGPURecordViewController.h"
 #import "FCPlayerViewController.h"
+#import "FCPhotoViewController.h"
 
 @interface ViewController ()
 
@@ -31,6 +32,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if (sender.tag == 2) {
         FCPlayerViewController *vc = [[FCPlayerViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (sender.tag == 3) {
+        FCPhotoViewController *vc = [[FCPhotoViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
