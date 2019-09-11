@@ -35,6 +35,9 @@
 		1447F02B23190B8F001786F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447F02A23190B8F001786F4 /* main.m */; };
 		1447F03423191044001786F4 /* FCRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447F03223191044001786F4 /* FCRecordViewController.m */; };
 		1447F037231939C3001786F4 /* FCRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1447F036231939C3001786F4 /* FCRecordViewController.xib */; };
+		4E73F6D5232934C10079ABA8 /* FCImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E73F6D3232934C10079ABA8 /* FCImageViewController.m */; };
+		4E73F6D6232934C10079ABA8 /* FCImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E73F6D4232934C10079ABA8 /* FCImageViewController.xib */; };
+		4E73F6DA232935AF0079ABA8 /* meinv.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E73F6D9232935AF0079ABA8 /* meinv.jpg */; };
 		4EEA4AEB231A0AD700090EC7 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */; };
 		4EEA4AEF231BC35C00090EC7 /* FCGPURecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA4AED231BC35C00090EC7 /* FCGPURecordViewController.m */; };
 		4EEA4AF0231BC35C00090EC7 /* FCGPURecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EEA4AEE231BC35C00090EC7 /* FCGPURecordViewController.xib */; };
@@ -110,6 +113,10 @@
 		1447F03223191044001786F4 /* FCRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCRecordViewController.m; sourceTree = "<group>"; };
 		1447F036231939C3001786F4 /* FCRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCRecordViewController.xib; sourceTree = "<group>"; };
 		4D82C122A2EB76A0AE1C898F /* Pods_FCLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FCLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E73F6D2232934C10079ABA8 /* FCImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCImageViewController.h; sourceTree = "<group>"; };
+		4E73F6D3232934C10079ABA8 /* FCImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCImageViewController.m; sourceTree = "<group>"; };
+		4E73F6D4232934C10079ABA8 /* FCImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCImageViewController.xib; sourceTree = "<group>"; };
+		4E73F6D9232935AF0079ABA8 /* meinv.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = meinv.jpg; sourceTree = "<group>"; };
 		4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		4EEA4AEA231A0AD600090EC7 /* UIColor+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 		4EEA4AEC231BC35C00090EC7 /* FCGPURecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCGPURecordViewController.h; sourceTree = "<group>"; };
@@ -195,9 +202,13 @@
 				14371F89232907BC00FD7F76 /* FCPhotoViewController.h */,
 				14371F8A232907BC00FD7F76 /* FCPhotoViewController.m */,
 				14371F8B232907BC00FD7F76 /* FCPhotoViewController.xib */,
+				4E73F6D2232934C10079ABA8 /* FCImageViewController.h */,
+				4E73F6D3232934C10079ABA8 /* FCImageViewController.m */,
+				4E73F6D4232934C10079ABA8 /* FCImageViewController.xib */,
 				4EEA4AEA231A0AD600090EC7 /* UIColor+Category.h */,
 				4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */,
 				1447F02423190B8F001786F4 /* Assets.xcassets */,
+				4E73F6D9232935AF0079ABA8 /* meinv.jpg */,
 				1447F02623190B8F001786F4 /* LaunchScreen.storyboard */,
 				1447F02923190B8F001786F4 /* Info.plist */,
 				1447F02A23190B8F001786F4 /* main.m */,
@@ -328,12 +339,14 @@
 				1437BEF423277BC8003D1DB3 /* FCPlayerViewController.xib in Resources */,
 				1447F02823190B8F001786F4 /* LaunchScreen.storyboard in Resources */,
 				1447F02523190B8F001786F4 /* Assets.xcassets in Resources */,
+				4E73F6D6232934C10079ABA8 /* FCImageViewController.xib in Resources */,
 				14371F882328ECE000FD7F76 /* Shader2.fsh in Resources */,
 				4EEA4AF0231BC35C00090EC7 /* FCGPURecordViewController.xib in Resources */,
 				14371F8D232907BC00FD7F76 /* FCPhotoViewController.xib in Resources */,
 				1447F037231939C3001786F4 /* FCRecordViewController.xib in Resources */,
 				14371F872328ECE000FD7F76 /* Shader1.fsh in Resources */,
 				1447F02323190B8A001786F4 /* Main.storyboard in Resources */,
+				4E73F6DA232935AF0079ABA8 /* meinv.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1437BEF323277BC8003D1DB3 /* FCPlayerViewController.m in Sources */,
+				4E73F6D5232934C10079ABA8 /* FCImageViewController.m in Sources */,
 				1447F02023190B8A001786F4 /* ViewController.m in Sources */,
 				1447F02B23190B8F001786F4 /* main.m in Sources */,
 				1447F03423191044001786F4 /* FCRecordViewController.m in Sources */,

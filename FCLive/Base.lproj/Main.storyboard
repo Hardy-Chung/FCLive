@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fXJ-pb-dJz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fXJ-pb-dJz">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,11 +54,22 @@
                                     <action selector="didClickRecordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rRy-ad-Oca"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rs-tG-6BS">
+                                <rect key="frame" x="60" y="381" width="115" height="30"/>
+                                <state key="normal" title="照片(GPUImage)">
+                                    <color key="titleColor" red="0.4941176471" green="0.69803921570000005" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickRecordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vqf-FQ-Rea"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yEz-yk-hkn" secondAttribute="trailing" symbolic="YES" id="3gl-ld-a6m"/>
                             <constraint firstItem="4Jc-h4-ji7" firstAttribute="leading" secondItem="yEz-yk-hkn" secondAttribute="leading" id="3kM-6W-zsi"/>
+                            <constraint firstItem="0Rs-tG-6BS" firstAttribute="top" secondItem="4Jc-h4-ji7" secondAttribute="bottom" constant="33" id="4CQ-hN-u0x"/>
+                            <constraint firstItem="0Rs-tG-6BS" firstAttribute="leading" secondItem="4Jc-h4-ji7" secondAttribute="leading" id="A4K-XD-OTg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tYQ-fR-59g" secondAttribute="trailing" symbolic="YES" id="CIX-Om-33I"/>
                             <constraint firstItem="tYQ-fR-59g" firstAttribute="leading" secondItem="f9d-NL-AEd" secondAttribute="leading" id="Jbr-Z7-Omk"/>
                             <constraint firstItem="f9d-NL-AEd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="KMM-Bz-o5s"/>
