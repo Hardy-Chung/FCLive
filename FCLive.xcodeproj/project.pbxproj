@@ -27,6 +27,7 @@
 		1437BF0A23277FC4003D1DB3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1437BF0923277FC4003D1DB3 /* CoreGraphics.framework */; };
 		1437BF0C23277FD9003D1DB3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1437BF0B23277FD9003D1DB3 /* QuartzCore.framework */; };
 		1437BF0E2327806E003D1DB3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1437BF0D2327806E003D1DB3 /* libc++.tbd */; };
+		1437FF0F232A2A39007DA88F /* FCSepiaShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1437FF0E232A2A39007DA88F /* FCSepiaShader.fsh */; };
 		1447F01D23190B8A001786F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447F01C23190B8A001786F4 /* AppDelegate.m */; };
 		1447F02023190B8A001786F4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447F01F23190B8A001786F4 /* ViewController.m */; };
 		1447F02323190B8A001786F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1447F02123190B8A001786F4 /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		1437BF0923277FC4003D1DB3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1437BF0B23277FD9003D1DB3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1437BF0D2327806E003D1DB3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		1437FF0E232A2A39007DA88F /* FCSepiaShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FCSepiaShader.fsh; sourceTree = "<group>"; };
 		1447F01823190B8A001786F4 /* FCLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1447F01B23190B8A001786F4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1447F01C23190B8A001786F4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				14371F832328ECE000FD7F76 /* Shader1.fsh */,
 				14371F862328ECE000FD7F76 /* Shader2.fsh */,
+				1437FF0E232A2A39007DA88F /* FCSepiaShader.fsh */,
 				1447F01B23190B8A001786F4 /* AppDelegate.h */,
 				1447F01C23190B8A001786F4 /* AppDelegate.m */,
 				1447F01E23190B8A001786F4 /* ViewController.h */,
@@ -336,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1437FF0F232A2A39007DA88F /* FCSepiaShader.fsh in Resources */,
 				1437BEF423277BC8003D1DB3 /* FCPlayerViewController.xib in Resources */,
 				1447F02823190B8F001786F4 /* LaunchScreen.storyboard in Resources */,
 				1447F02523190B8F001786F4 /* Assets.xcassets in Resources */,

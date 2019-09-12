@@ -91,7 +91,7 @@
     GPUImageVideoCamera *videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
     videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     
-    GPUImageFilter *customFilter1 = [[GPUImageFilter alloc] initWithFragmentShaderFromFile:@"Shader1"];
+    GPUImageFilter *customFilter1 = [[GPUImageFilter alloc] initWithFragmentShaderFromFile:@"FCSepiaShader"];
     GPUImageGammaFilter *customFilter2 = [[GPUImageGammaFilter alloc] init];
     customFilter2.gamma = 3;
     GPUImageView *filterVideoView = [[GPUImageView alloc] initWithFrame:CGRectMake(0, 100, 320, 240)];
@@ -100,8 +100,8 @@
     [self.view insertSubview:filterVideoView2 atIndex:0];
     
     [videoCamera addTarget:customFilter2];
-    [videoCamera addTarget:filterVideoView];
-//    [customFilter1 addTarget:filterVideoView];
+    [videoCamera addTarget:customFilter1];
+    [customFilter1 addTarget:filterVideoView];
     
     [customFilter2 addTarget:filterVideoView2];
     [videoCamera startCameraCapture];
