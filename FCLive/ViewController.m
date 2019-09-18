@@ -12,6 +12,7 @@
 #import "FCPlayerViewController.h"
 #import "FCPhotoViewController.h"
 #import "FCImageViewController.h"
+#import "FCMoiveViewController.h"
 
 @interface ViewController ()
 
@@ -39,6 +40,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if (sender.tag == 4) {
         FCImageViewController *vc = [[FCImageViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (sender.tag == 5) {
+        FCMoiveViewController *vc = [[FCMoiveViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
