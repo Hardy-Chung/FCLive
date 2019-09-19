@@ -12,6 +12,9 @@
 
 @interface FCMoiveViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, GPUImageMovieWriterDelegate>
 
+@property (nonatomic, strong) GPUImageMovie *movieFile;
+@property (nonatomic, strong) GPUImageMovieWriter *movieWriter;
+
 @end
 
 @implementation FCMoiveViewController
@@ -33,29 +36,31 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
     NSURL *movieURL = info[UIImagePickerControllerMediaURL];
+    [picker dismissViewControllerAnimated:YES completion:nil];
     
-    GPUImageMovie *movieFile = [[GPUImageMovie alloc] initWithURL:movieURL];
+    self.movieFile = [[GPUImageMovie alloc] initWithURL:movieURL];
     GPUImagePixellateFilter *pixellateFilter = [[GPUImagePixellateFilter alloc] init];
     
-    [movieFile addTarget:pixellateFilter];
+    [self.movieFile addTarget:pixellateFilter];
     
     NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie.m4v"];
     unlink([pathToMovie UTF8String]);
     NSURL *resultURL = [NSURL fileURLWithPath:pathToMovie];
     
-    GPUImageMovieWriter *movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:resultURL size:CGSizeMake(480.0, 640.0)];
-    [pixellateFilter addTarget:movieWriter];
+    self.movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:resultURL size:CGSizeMake(480.0, 640.0)];
+    [pixellateFilter addTarget:self.movieWriter];
     
-    movieWriter.shouldPassthroughAudio = YES;
-    movieFile.audioEncodingTarget = movieWriter;
-    [movieFile enableSynchronizedEncodingUsingMovieWriter:movieWriter];
+    self.movieWriter.shouldPassthroughAudio = YES;
+    self.movieWriter.delegate = self;
+    self.movieFile.audioEncodingTarget = self.movieWriter;
+    [self.movieFile enableSynchronizedEncodingUsingMovieWriter:self.movieWriter];
     
-    [movieWriter startRecording];
-    [movieFile startProcessing];
+    [self.movieWriter startRecording];
+    [self.movieFile startProcessing];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)movieRecordingCompleted {
