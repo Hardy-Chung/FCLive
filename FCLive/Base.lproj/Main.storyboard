@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fXJ-pb-dJz">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fXJ-pb-dJz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,18 +76,21 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yEz-yk-hkn" secondAttribute="trailing" symbolic="YES" id="3gl-ld-a6m"/>
                             <constraint firstItem="4Jc-h4-ji7" firstAttribute="leading" secondItem="yEz-yk-hkn" secondAttribute="leading" id="3kM-6W-zsi"/>
                             <constraint firstItem="0Rs-tG-6BS" firstAttribute="top" secondItem="4Jc-h4-ji7" secondAttribute="bottom" constant="33" id="4CQ-hN-u0x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Jc-h4-ji7" secondAttribute="trailing" symbolic="YES" id="5bG-pJ-y8N"/>
                             <constraint firstItem="Inq-Ex-G5V" firstAttribute="leading" secondItem="0Rs-tG-6BS" secondAttribute="leading" id="81G-7i-ELz"/>
                             <constraint firstItem="0Rs-tG-6BS" firstAttribute="leading" secondItem="4Jc-h4-ji7" secondAttribute="leading" id="A4K-XD-OTg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tYQ-fR-59g" secondAttribute="trailing" symbolic="YES" id="CIX-Om-33I"/>
                             <constraint firstItem="tYQ-fR-59g" firstAttribute="leading" secondItem="f9d-NL-AEd" secondAttribute="leading" id="Jbr-Z7-Omk"/>
                             <constraint firstItem="f9d-NL-AEd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="KMM-Bz-o5s"/>
                             <constraint firstItem="yEz-yk-hkn" firstAttribute="top" secondItem="tYQ-fR-59g" secondAttribute="bottom" constant="33" id="Qjy-IK-0XR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Inq-Ex-G5V" secondAttribute="trailing" symbolic="YES" id="UAW-aU-su0"/>
                             <constraint firstItem="yEz-yk-hkn" firstAttribute="leading" secondItem="tYQ-fR-59g" secondAttribute="leading" id="X7s-zQ-n0y"/>
                             <constraint firstItem="f9d-NL-AEd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="XbV-Vo-dnj"/>
-                            <constraint firstItem="Inq-Ex-G5V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZT4-Nd-Mqc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0Rs-tG-6BS" secondAttribute="trailing" symbolic="YES" id="hiY-36-rBQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f9d-NL-AEd" secondAttribute="trailing" symbolic="YES" id="jFq-jR-KBu"/>
                             <constraint firstItem="4Jc-h4-ji7" firstAttribute="top" secondItem="yEz-yk-hkn" secondAttribute="bottom" constant="38" id="nVZ-br-jNI"/>
                             <constraint firstItem="tYQ-fR-59g" firstAttribute="top" secondItem="f9d-NL-AEd" secondAttribute="bottom" constant="42" id="sM2-g3-m7t"/>
+                            <constraint firstItem="Inq-Ex-G5V" firstAttribute="top" secondItem="0Rs-tG-6BS" secondAttribute="bottom" constant="22" id="zvD-yv-Lr9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
