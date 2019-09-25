@@ -31,6 +31,18 @@
     return filter;
 }
 
+- (GPUImageExposureFilter *)exposureFilter {
+    GPUImageExposureFilter *filter = [[GPUImageExposureFilter alloc] init];
+    filter.exposure = 1;
+    return filter;
+}
+
+- (GPUImageContrastFilter *)contrastFilter {
+    GPUImageContrastFilter *filter = [[GPUImageContrastFilter alloc] init];
+    filter.contrast = 3;
+    return filter;
+}
+
 - (GPUImage3x3ConvolutionFilter *)convolutionFilter {
     GPUImage3x3ConvolutionFilter *filter = [[GPUImage3x3ConvolutionFilter alloc] init];
     filter.convolutionKernel = (GPUMatrix3x3){
@@ -41,12 +53,12 @@
     return filter;
 }
 
-
-
 - (NSArray *)allFilters {
     if (!_allFilters) {
         NSMutableArray *filters = [NSMutableArray array];
         [filters addObject:[self brightnessFilter]];
+        [filters addObject:[self exposureFilter]];
+        [filters addObject:[self contrastFilter]];
         [filters addObject:[self convolutionFilter]];
         
         _allFilters = [filters copy];

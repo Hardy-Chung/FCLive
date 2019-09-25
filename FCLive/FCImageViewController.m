@@ -46,11 +46,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    if (@available(iOS 11.0, *)) {
-        self.contentView.frame = UIEdgeInsetsInsetRect(self.view.bounds, self.view.safeAreaInsets);
-    } else {
-        // Fallback on earlier versions
-    }
+    self.contentView.frame = UIEdgeInsetsInsetRect(self.view.bounds, self.view.safeAreaInsets);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
