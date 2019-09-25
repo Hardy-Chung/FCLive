@@ -7,7 +7,7 @@
 //
 
 #import "FCImageViewController.h"
-#import <GPUImage/GPUImage.h>
+#import "FCFilterManager.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "FCImageFilterView.h"
 
@@ -43,6 +43,23 @@
 //    self.imageView2.image = resultImage;
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    if (@available(iOS 11.0, *)) {
+        self.contentView.frame = UIEdgeInsetsInsetRect(self.view.bounds, self.view.safeAreaInsets);
+    } else {
+        // Fallback on earlier versions
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    UIImage *image = [UIImage imageNamed:@"meinv.jpg"];
+    [self changeImage:image];
+}
+
 - (void)didClickRightItem:(UIBarButtonItem *)item {
     UIImagePickerController *vc = [[UIImagePickerController alloc] init];
     vc.delegate = self;
@@ -62,18 +79,30 @@
 }
 
 - (void)configFilterViews {
-    FCImageFilterView *view = [[NSBundle mainBundle] loadNibNamed:@"FCImageFilterView" owner:self options:nil].firstObject;
-    [self.contentView addSubview:view];
+    NSInteger filterCount = FCFilterManager.defaultManager.allFilters.count;
+    for (NSInteger idx = 0; idx < filterCount; idx++) {
+        FCImageFilterView *idxView = [[NSBundle mainBundle] loadNibNamed:@"FCImageFilterView" owner:self options:nil].firstObject;;
+        CGRect frame = self.contentView.bounds;
+        frame.origin.x = CGRectGetWidth(frame) * idx;
+        idxView.frame = frame;
+        [self.contentView addSubview:idxView];
+    }
+    self.contentView.contentSize = CGSizeMake(CGRectGetWidth(self.contentView.bounds) * filterCount, CGRectGetHeight(self.contentView.bounds));
 }
 
 - (void)changeImage:(UIImage *)image {
-    GPUImage3x3ConvolutionFilter *stillImageFilter2 = [[GPUImage3x3ConvolutionFilter alloc] init];
-    stillImageFilter2.convolutionKernel = (GPUMatrix3x3){
-        {-1.f, -1.f, -1.f},
-        {-1.f, 8.f, -1.f},
-        {-1.f, -1.f, -1.f}
-    };
-    UIImage *resultImage = [stillImageFilter2 imageByFilteringImage:image];
+    if (self.contentView.subviews.count == 0) {
+        [self configFilterViews];
+    }
+    
+    for (NSInteger idx = 0; idx < FCFilterManager.defaultManager.allFilters.count; idx++) {
+        FCImageFilterView *idxView = self.contentView.subviews[idx];
+        GPUImageFilter *filter = FCFilterManager.defaultManager.allFilters[idx];
+        
+        idxView.nameLabel.text = NSStringFromClass([filter class]);
+        idxView.originalImageView.image = image;
+        idxView.resultImageView.image = [filter imageByFilteringImage:image];
+    }
 }
 
 @end

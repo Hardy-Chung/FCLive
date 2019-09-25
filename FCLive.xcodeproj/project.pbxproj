@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		143645AD233B5E1000AB90E8 /* FCFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 143645AC233B5E1000AB90E8 /* FCFilterManager.m */; };
 		14371F872328ECE000FD7F76 /* Shader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14371F832328ECE000FD7F76 /* Shader1.fsh */; };
 		14371F882328ECE000FD7F76 /* Shader2.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14371F862328ECE000FD7F76 /* Shader2.fsh */; };
 		14371F8C232907BC00FD7F76 /* FCPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14371F8A232907BC00FD7F76 /* FCPhotoViewController.m */; };
@@ -82,6 +83,8 @@
 
 /* Begin PBXFileReference section */
 		05E79ABDF16E235A2FA103FC /* Pods-FCLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FCLive.release.xcconfig"; path = "Target Support Files/Pods-FCLive/Pods-FCLive.release.xcconfig"; sourceTree = "<group>"; };
+		143645AB233B5E1000AB90E8 /* FCFilterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCFilterManager.h; sourceTree = "<group>"; };
+		143645AC233B5E1000AB90E8 /* FCFilterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCFilterManager.m; sourceTree = "<group>"; };
 		14371F832328ECE000FD7F76 /* Shader1.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader1.fsh; sourceTree = "<group>"; };
 		14371F862328ECE000FD7F76 /* Shader2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader2.fsh; sourceTree = "<group>"; };
 		14371F89232907BC00FD7F76 /* FCPhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCPhotoViewController.h; sourceTree = "<group>"; };
@@ -226,6 +229,8 @@
 				4E0CB2E323325D5E00D88373 /* FCMoiveViewController.xib */,
 				4EEA4AEA231A0AD600090EC7 /* UIColor+Category.h */,
 				4EEA4AE9231A0AD600090EC7 /* UIColor+Category.m */,
+				143645AB233B5E1000AB90E8 /* FCFilterManager.h */,
+				143645AC233B5E1000AB90E8 /* FCFilterManager.m */,
 				1447F02423190B8F001786F4 /* Assets.xcassets */,
 				4E73F6D9232935AF0079ABA8 /* meinv.jpg */,
 				1447F02623190B8F001786F4 /* LaunchScreen.storyboard */,
@@ -427,6 +432,7 @@
 				14484D09233A19C7002B4791 /* FCImageFilterView.m in Sources */,
 				1447F02B23190B8F001786F4 /* main.m in Sources */,
 				4E0CB2E423325D5E00D88373 /* FCMoiveViewController.m in Sources */,
+				143645AD233B5E1000AB90E8 /* FCFilterManager.m in Sources */,
 				1447F03423191044001786F4 /* FCRecordViewController.m in Sources */,
 				14371F8C232907BC00FD7F76 /* FCPhotoViewController.m in Sources */,
 				4EEA4AEF231BC35C00090EC7 /* FCGPURecordViewController.m in Sources */,
@@ -585,14 +591,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NYSZ424BL3;
 				INFOPLIST_FILE = FCLive/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.FCLive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -604,14 +610,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NYSZ424BL3;
 				INFOPLIST_FILE = FCLive/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.FCLive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

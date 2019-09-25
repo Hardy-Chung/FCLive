@@ -14,24 +14,34 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVE-UH-jpg">
+                    <rect key="frame" x="186" y="64" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gS2-P2-jEN">
+                    <rect key="frame" x="16" y="247" width="382" height="382"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="gS2-P2-jEN" secondAttribute="height" multiplier="1:1" id="d7C-aX-TNe"/>
+                    </constraints>
+                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p6W-V9-X8G">
-                    <rect key="frame" x="16" y="60" width="138" height="138"/>
+                    <rect key="frame" x="16" y="101" width="138" height="138"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="p6W-V9-X8G" secondAttribute="height" multiplier="1:1" id="yLt-39-WRG"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gS2-P2-jEN">
-                    <rect key="frame" x="157" y="206" width="241" height="640"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="gS2-P2-jEN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="3cq-q6-aZJ"/>
                 <constraint firstItem="p6W-V9-X8G" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="63C-dH-9Wn"/>
-                <constraint firstItem="p6W-V9-X8G" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="1:3" id="BOM-Bz-2I2"/>
-                <constraint firstItem="p6W-V9-X8G" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="Dae-9u-wls"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="gS2-P2-jEN" secondAttribute="bottom" constant="16" id="HZO-yL-F3c"/>
+                <constraint firstItem="p6W-V9-X8G" firstAttribute="top" secondItem="XVE-UH-jpg" secondAttribute="bottom" constant="16" id="GSl-Cz-oKM"/>
+                <constraint firstItem="XVE-UH-jpg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="JHH-s1-gAO"/>
+                <constraint firstItem="XVE-UH-jpg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="MOQ-Dc-Npf"/>
                 <constraint firstItem="gS2-P2-jEN" firstAttribute="top" secondItem="p6W-V9-X8G" secondAttribute="bottom" constant="8" id="Nhj-9c-XCM"/>
-                <constraint firstItem="gS2-P2-jEN" firstAttribute="leading" secondItem="p6W-V9-X8G" secondAttribute="trailing" constant="3" id="y1r-hQ-Jc7"/>
+                <constraint firstItem="p6W-V9-X8G" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="1:3" id="ed7-aa-041"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gS2-P2-jEN" secondAttribute="trailing" constant="16" id="zE0-1M-O1J"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -39,6 +49,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="nameLabel" destination="XVE-UH-jpg" id="wYr-sw-QdF"/>
                 <outlet property="originalImageView" destination="p6W-V9-X8G" id="9GB-2J-6po"/>
                 <outlet property="resultImageView" destination="gS2-P2-jEN" id="iUL-nu-al4"/>
             </connections>

@@ -9,8 +9,7 @@
 #import "FCImageFilterView.h"
 
 @interface FCImageFilterView ()
-@property (weak, nonatomic) IBOutlet UIImageView *originalImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *resultImageView;
+
 
 @end
 
